@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende Francés Fácil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .lesson-title {
+            color: #6d28d9; /* Morado más vibrante */
+        }
+        .grammar-point {
+            font-weight: 600;
+            color: #1e293b;
+        }
+        .explanation {
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+            color: #4b5563;
+        }
+        .example {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0.75rem;
+            color: #1f2937;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+        }
+        .exercise {
+            background-color: #f0f4ff;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0.75rem;
+            color: #1f2937;
+            border: 1px solid #d1d8f3;
+             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+        }
+        .exercise-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #6d28d9; /* Morado más vibrante */
+        }
+        .answer-input {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #d1d5db;
+            margin-bottom: 1rem;
+            width: 100%;
+            max-width: 300px;
+            transition: border-color 0.3s ease;
+        }
+        .answer-input:focus {
+            outline: none;
+            border-color: #6d28d9;
+            box-shadow: 0 0 0 3px rgba(107, 114, 245, 0.15);
+        }
+        .check-answer-button {
+            background-color: #6d28d9;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .check-answer-button:hover {
+            background-color: #4c1d95;
+            transform: translateY(-2px);
+             box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.1), 0 3px 4px -1px rgba(0, 0, 0, 0.08);
+        }
+        .feedback {
+            font-weight: 600;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .feedback.show {
+            display: block;
+            opacity: 1;
+        }
+        .correct {
+            background-color: #f0fdf4;
+            color: #15803d;
+            border: 1px solid #16a34a;
+        }
+        .incorrect {
+            background-color: #fee2e2;
+            color: #b91c1c;
+            border: 1px solid #dc2626;
+        }
+        #author-info {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="container">
+        <h1 class="text-4xl font-semibold text-center mb-6 text-purple-800">Aprende los Fundamentos del Francés con Walter</h1>
+        <p class="text-xl text-gray-600 text-center mb-10">Lecciones de gramática y vocabulario para principiantes.</p>
+
+        <section class="lesson bg-white rounded-lg shadow-md">
+            <h2 class="lesson-title text-3xl font-semibold mb-6">Lección 1: El Alfabeto y la Pronunciación</h2>
+            <p class="explanation">
+                El alfabeto francés tiene 26 letras, pero la pronunciación es diferente al español. Aquí están las bases:
+            </p>
+            <ul class="list-disc list-inside mb-6">
+                <li class="mb-2">La mayoría de las consonantes se pronuncian similar al español, pero algunas al final de la palabra no se pronuncian.</li>
+                <li class="mb-2">Las vocales tienen sonidos diferentes y a veces se combinan para formar nuevos sonidos.</li>
+                <li>La "h" es muda, no se pronuncia.</li>
+            </ul>
+            <p class="grammar-point text-lg font-semibold mb-4">Pronunciación de las vocales:</p>
+            <ul class="list-disc list-inside mb-6">
+                <li class="mb-2">"a" se pronuncia como en "padre"</li>
+                <li class="mb-2">"e" tiene un sonido como en "pe" o a veces no se pronuncia al final de la palabra</li>
+                <li class="mb-2">"i" se pronuncia como en "si"</li>
+                <li class="mb-2">"o" se pronuncia como en "no"</li>
+                <li>"u" se pronuncia como en "tu"</li>
+            </ul>
+            <div class="example bg-gray-50 rounded-lg p-6 mb-6">
+                <p class="font-semibold text-gray-800 mb-2">Ejemplo:</p>
+                <p class="text-gray-700">"Bonjour" se pronuncia "bon-shur"</p>
+            </div>
+            <div class="exercise bg-blue-50 rounded-lg p-6 mb-6">
+                <h3 class="exercise-title text-2xl font-semibold mb-4">Ejercicio 1:</h3>
+                <p class="text-gray-700 mb-4">Pronuncia estas palabras en francés:</p>
+                <ul class="list-decimal list-inside text-gray-800">
+                    <li class="mb-2">Table</li>
+                    <li class="mb-2">Arbre</li>
+                    <li class="mb-2">Merci</li>
+                    <li>Bonjour</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="lesson bg-white rounded-lg shadow-md">
+            <h2 class="lesson-title text-3xl font-semibold mb-6">Lección 2: Saludos y Frases Comunes</h2>
+            <p class="explanation">
+                Aprende a saludar y algunas frases esenciales para empezar a comunicarte.
+            </p>
+            <p class="grammar-point text-lg font-semibold mb-4">Saludos:</p>
+            <ul class="list-disc list-inside mb-6">
+                <li class="mb-2">Bonjour (Buenos días/Hola)</li>
+                <li class="mb-2">Bonsoir (Buenas noches)</li>
+                <li class="mb-2">Salut (Hola - informal)</li>
+                <li class="mb-2">Au revoir (Adiós)</li>
+                <li>À bientôt (Hasta pronto)</li>
+            </ul>
+            <p class="grammar-point text-lg font-semibold mb-4">Frases Comunes:</p>
+            <ul class="list-disc list-inside mb-6">
+                <li class="mb-2">Comment allez-vous? (¿Cómo está?) - formal</li>
+                <li class="mb-2">Comment vas-tu? (¿Cómo estás?) - informal</li>
+                <li class="mb-2">Je vais bien, merci. (Estoy bien, gracias.)</li>
+                <li class="mb-2">Et toi/vous? (¿Y tú/usted?)</li>
+                <li class="mb-2">S'il vous plaît (Por favor) - formal</li>
+                <li class="mb-2">S'il te plaît (Por favor) - informal</li>
+                <li class="mb-2">Merci (Gracias)</li>
+                <li class="mb-2">De rien (De nada)</li>
+                <li class="mb-2">Excusez-moi (Disculpe) - formal</li>
+                <li>Excuse-moi (Disculpe) - informal</li>
+            </ul>
+            <div class="example bg-gray-50 rounded-lg p-6 mb-6">
+                <p class="font-semibold text-gray-800 mb-2">Ejemplo:</p>
+                <p class="text-gray-700 mb-2">Bonjour, comment allez-vous ?</p>
+                <p class="text-gray-700">Je vais bien, merci. Et vous ?</p>
+            </div>
+            <div class="exercise bg-blue-50 rounded-lg p-6 mb-6">
+                <h3 class="exercise-title text-2xl font-semibold mb-4">Ejercicio 2:</h3>
+                <p class="text-gray-700 mb-4">Traduce estas frases al francés:</p>
+                <ul class="list-decimal list-inside mb-4 text-gray-800">
+                    <li class="mb-2">Hola, ¿cómo estás? (informal)</li>
+                    <li class="mb-2">Adiós, hasta pronto.</li>
+                    <li>Por favor, gracias. (formal)</li>
+                </ul>
+                <input type="text" id="ejercicio2-1" class="answer-input" placeholder="Tu respuesta 1">
+                <input type="text" id="ejercicio2-2" class="answer-input" placeholder="Tu respuesta 2">
+                <input type="text" id="ejercicio2-3" class="answer-input" placeholder="Tu respuesta 3">
+                <button class="check-answer-button" onclick="checkAnswers2()">Verificar respuestas</button>
+                <div id="feedback2" class="feedback"></div>
+            </div>
+        </section>
+
+        <section class="lesson bg-white rounded-lg shadow-md">
+            <h2 class="lesson-title text-3xl font-semibold mb-6">Lección 3: Los Artículos y los Sustantivos</h2>
+            <p class="explanation">
+                En francés, cada sustantivo tiene un género (masculino o femenino) y esto afecta a las palabras que lo acompañan.
+            </p>
+            <p class="grammar-point text-lg font-semibold mb-4">Artículos Definidos:</p>
+            <ul class="list-disc list-inside mb-6">
+                <li class="mb-2">Le (el) - masculino singular</li>
+                <li class="mb-2">La (la) - femenino singular</li>
+                <li class="mb-2">L' (el/la) - antes de vocal o h muda</li>
+                <li>Les (los/las) - plural</li>
+            </ul>
+            <p class="grammar-point text-lg font-semibold mb-4">Artículos Indefinidos:</p>
+            <ul class="list-disc list-inside mb-6">
+                <li class="mb-2">Un (un) - masculino singular</li>
+                <li class="mb-2">Une (una) - femenino singular</li>
+                <li>Des (unos/unas) - plural</li>
+            </ul>
+            <div class="example bg-gray-50 rounded-lg p-6 mb-6">
+                <p class="font-semibold text-gray-800 mb-2">Ejemplo:</p>
+                <p class="text-gray-700 mb-2">Le livre (el libro), la table (la mesa), l'arbre (el árbol), les livres (los libros)</p>
+                <p class="text-gray-700">Un livre (un libro), une table (una mesa), des arbres (unos árboles)</p>
+            </div>
+            <div class="exercise bg-blue-50 rounded-lg p-6 mb-6">
+                <h3 class="exercise-title text-2xl font-semibold mb-4">Ejercicio 3:</h3>
+                <p class="text-gray-700 mb-4">Completa las frases con el artículo correcto (le, la, l', les, un, une, des):</p>
+                <ul class="list-decimal list-inside mb-4 text-gray-800">
+                    <li class="mb-2">___ livre est sur ___ table.</li>
+                    <li class="mb-2">J'ai ___ amis français.</li>
+                    <li>___ arbre est grand.</li>
+                </ul>
+                <input type="text" id="ejercicio3-1" class="answer-input" placeholder="Tu respuesta 1">
+                <input type="text" id="ejercicio3-2" class="answer-input" placeholder="Tu respuesta 2">
+                <input type="text" id="ejercicio3-3" class="answer-input" placeholder="Tu respuesta 3">
+                <button class="check-answer-button" onclick="checkAnswers3()">Verificar respuestas</button>
+                <div id="feedback3" class="feedback"></div>
+            </div>
+        </section>
+
+        <section class="lesson bg-white rounded-lg shadow-md">
+            <h2 class="lesson-title text-3xl font-semibold mb-6">Lección 4: Verbos Esenciales - Être y Avoir</h2>
+            <p class="explanation">
+                Los verbos "être" (ser/estar) y "avoir" (tener/haber) son fundamentales en francés. Aquí te mostramos cómo se conjugan:
+            </p>
+            <p class="grammar-point text-lg font-semibold mb-4">Verbo Être (ser/estar):</p>
+            <ul class="list-disc list-inside mb-6">
+                <li class="mb-2">Je suis (Yo soy/estoy)</li>
+                <li class="mb-2">Tu es (Tú eres/estás)</li>
+                <li class="mb-2">Il/Elle/On est (Él/Ella/Uno es/está)</li>
+                <li class="mb-2">Nous sommes (Nosotros somos/estamos)</li>
+                <li class="mb-2">Vous êtes (Ustedes son/están)</li>
+                <li>Ils/Elles sont (Ellos/Ellas son/están)</li>
+            </ul>
+            <p class="grammar-point text-lg font-semibold mb-4">Verbo Avoir (tener/haber):</p>
+            <ul class="list-disc list-inside mb-6">
+                <li class="mb-2">J'ai (Yo tengo/he)</li>
+                <li class="mb-2">Tu as (Tú tienes/has)</li>
+                <li class="mb-2">Il/Elle/On a (Él/Ella/Uno tiene/ha)</li>
+                <li class="mb-2">Nous avons (Nosotros tenemos/hemos)</li>
+                <li class="mb-2">Vous avez (Ustedes tienen/han)</li>
+                <li>Ils/Elles ont (Ellos/Ellas ont)</li>
+            </ul>
+            <div class="example bg-gray-50 rounded-lg p-6 mb-6">
+                <p class="font-semibold text-gray-800 mb-2">Ejemplo:</p>
+                <p class="text-gray-700 mb-2">Je suis étudiant. (Yo soy estudiante.)</p>
+                <p class="text-gray-700 mb-2">Il a un livre. (Él tiene un libro.)</p>
+                <p class="text-gray-700 mb-2">Nous sommes fatigués. (Nosotros estamos cansados.)</p>
+                <p class="text-gray-700">Elles ont faim. (Ellas tienen hambre.)</p>
+            </div>
+            <div class="exercise bg-blue-50 rounded-lg p-6 mb-6">
+                <h3 class="exercise-title text-2xl font-semibold mb-4">Ejercicio 4:</h3>
+                <p class="text-gray-700 mb-4">Conjuga los verbos "être" o "avoir" en las siguientes frases:</p>
+                <ul class="list-decimal list-inside mb-4 text-gray-800">
+                    <li class="mb-2">Je ___ un stylo. (avoir)</li>
+                    <li class="mb-2">Tu ___ français. (être)</li>
+                    <li class="mb-2">Nous ___ soif. (avoir)</li>
+                    <li>Ils ___ contents. (être)</li>
+                </ul>
+                <input type="text" id="ejercicio4-1" class="answer-input" placeholder="Tu respuesta 1">
+                <input type="text" id="ejercicio4-2" class="answer-input" placeholder="Tu respuesta 2">
+                <input type="text" id="ejercicio4-3" class="answer-input" placeholder="Tu respuesta 3">
+                <input type="text" id="ejercicio4-4" class="answer-input" placeholder="Tu respuesta 4">
+                <button class="check-answer-button" onclick="checkAnswers4()">Verificar respuestas</button>
+                <div id="feedback4" class="feedback"></div>
+            </div>
+        </section>
+         <footer id="author-info" class="bg-gray-50 rounded-lg py-4 mt-8">
+            <p class="text-gray-600">Este sitio web fue creado por Walter Mendoza para el curso de Francés 2 como un proyecto de Aprendizaje Práctico Experimental (APE).</p>
+        </footer>
+    </div>
+
+    <script>
+        function checkAnswers2() {
+            const respuesta1 = document.getElementById("ejercicio2-1").value.trim().toLowerCase();
+            const respuesta2 = document.getElementById("ejercicio2-2").value.trim().toLowerCase();
+            const respuesta3 = document.getElementById("ejercicio2-3").value.trim().toLowerCase();
+            const feedback = document.getElementById("feedback2");
+
+            let correctAnswers = 0;
+            if (respuesta1 === "salut, comment vas-tu?") {
+                correctAnswers++;
+            }
+             if (respuesta2 === "au revoir, à bientôt.") {
+                correctAnswers++;
+            }
+            if (respuesta3 === "s'il vous plaît, merci.") {
+                correctAnswers++;
+            }
+
+            if (correctAnswers === 3) {
+                feedback.textContent = "¡Todas las respuestas son correctas!";
+                feedback.className = "feedback correct show";
+            } else {
+                feedback.textContent = "Algunas respuestas son incorrectas. Inténtalo de nuevo.";
+                feedback.className = "feedback incorrect show";
+            }
+            feedback.style.display = "block";
+        }
+
+        function checkAnswers3() {
+            const respuesta1 = document.getElementById("ejercicio3-1").value.trim().toLowerCase();
+            const respuesta2 = document.getElementById("ejercicio3-2").value.trim().toLowerCase();
+            const respuesta3 = document.getElementById("ejercicio3-3").value.trim().toLowerCase();
+            const feedback = document.getElementById("feedback3");
+
+            let correctAnswers = 0;
+            if (respuesta1 === "le livre est sur la table.") {
+                correctAnswers++;
+            }
+            if (respuesta2 === "j'ai des amis français.") {
+                correctAnswers++;
+            }
+            if (respuesta3 === "l'arbre est grand.") {
+                correctAnswers++;
+            }
+
+            if (correctAnswers === 3) {
+                feedback.textContent = "¡Todas las respuestas son correctas!";
+                feedback.className = "feedback correct show";
+            } else {
+                feedback.textContent = "Algunas respuestas son incorrectas. Inténtalo de nuevo.";
+                feedback.className = "feedback incorrect show";
+            }
+            feedback.style.display = "block";
+        }
+
+        function checkAnswers4() {
+            const respuesta1 = document.getElementById("ejercicio4-1").value.trim().toLowerCase();
+            const respuesta2 = document.getElementById("ejercicio4-2").value.trim().toLowerCase();
+            const respuesta3 = document.getElementById("ejercicio4-3").value.trim().toLowerCase();
+            const respuesta4 = document.getElementById("ejercicio4-4").value.trim().toLowerCase();
+            const feedback = document.getElementById("feedback4");
+
+            let correctAnswers = 0;
+            if (respuesta1 === "j'ai un stylo.") {
+                correctAnswers++;
+            }
+            if (respuesta2 === "tu es français.") {
+                correctAnswers++;
+            }
+            if (respuesta3 === "nous avons soif.") {
+                correctAnswers++;
+            }
+             if (respuesta4 === "ils sont contents.") {
+                correctAnswers++;
+            }
+
+            if (correctAnswers === 4) {
+                feedback.textContent = "¡Todas las respuestas son correctas!";
+                feedback.className = "feedback correct show";
+            } else {
+                feedback.textContent = "Algunas respuestas son incorrectas. Inténtalo de nuevo.";
+                feedback.className = "feedback incorrect show";
+            }
+            feedback.style.display = "block";
+        }
+    </script>
+</body>
+</html>
